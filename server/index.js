@@ -17,9 +17,13 @@ app.get("/api/passwords", (req, res) => {
   console.log(`Sent ${count} passwords`);
 });
 
+app.post("/api/uploadFile", (req, res) => {
+  console.log(`Recieved file ${req}`);
+});
+
 // any request that doesnt match above routes
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client/build/index.html"));
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 
 const port = process.env.PORT || 3000;
