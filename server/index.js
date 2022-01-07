@@ -23,6 +23,12 @@ app.post("/api/uploadFile", (req, res) => {
 
 // any request that doesnt match above routes
 app.get("*", (req, res) => {
+  console.log(path.join(__dirname, "../client/build/index.html"));
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+});
+
+app.get("/home", (req, res) => {
+  console.log(path.join(__dirname, "../client/build/index.html"));
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 
