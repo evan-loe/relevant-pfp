@@ -36,6 +36,7 @@ router.post("/", upload.single("profileImage"), (req, res) => {
 
   const canvas = createCanvas(200, 200);
   const ctx = canvas.getContext("2d");
+  ctx.fillText("rel·e·vant 2022");
 
   res.status(200).json("success yay!");
 });

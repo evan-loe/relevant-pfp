@@ -1,0 +1,10 @@
+.img-container {
+  float: left;
+  display: block;
+  max-width: 100%;
+}
+
+@font-face {
+  font-family: "Montreal-Bold";
+  src: url("./Montreal-Bold.ttf");
+}
