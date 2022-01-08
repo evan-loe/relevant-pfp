@@ -3,30 +3,24 @@ import "cropperjs/dist/cropper.css";
 import "./assets/imagecropper.css";
 import Cropper from "cropperjs";
 import pfpMask from "./assets/relevant-pfp-mask.png";
+import Facebook from "./Facebook";
 
 class ImageCropper extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      imageDestination: "",
       selectedFile: "",
       fileURL:
         "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/best-girl-cat-names-1606245046.jpg?crop=0.668xw:1.00xh;0.126xw,0&resize=640:*",
       cropper: null,
-      canvasElem: null,
       pfpImage: null,
+      fbProfile: null,
     };
     this.imageElement = React.createRef();
     this.previewElement = React.createRef();
     this.pfpMask = React.createRef();
+    this.onLogin = this.onLogin.bind(this);
   }
-
-  draw = (ctx) => {
-    ctx.fillStyle = "#000000";
-    ctx.beginPath();
-    ctx.arc(50, 100, 20, 0, 2 * Math.PI);
-    ctx.fill();
-  };
 
   componentDidMount() {
     const cropper = new Cropper(this.imageElement.current, {
@@ -34,17 +28,28 @@ class ImageCropper extends Component {
       scalable: false,
       aspectRatio: 1,
       crop: () => {
-        console.log(this.previewElement.current);
-        this.previewElement.current.replaceChild(
-          cropper.getCroppedCanvas(),
-          this.previewElement.current.firstChild
-        );
         const canvas = this.previewElement.current.firstChild;
+        canvas.id = "preview";
+
+        const picture = cropper.getCroppedCanvas();
+
         const ctx = canvas.getContext("2d");
         ctx.font = "bold 48px Montreal-Bold";
         ctx.fillStyle = "#00a79d";
 
         const img = this.state.pfpImage;
+
+        ctx.drawImage(
+          picture,
+          0,
+          0,
+          picture.width,
+          picture.height,
+          0,
+          0,
+          canvas.width,
+          canvas.height
+        );
 
         ctx.drawImage(
           img,
@@ -74,23 +79,30 @@ class ImageCropper extends Component {
   componentDidUpdate(prevProps, prevState) {
     console.log("updateeee");
     if (prevState.fileURL !== this.state.fileURL) {
+      console.log("updating pictureeeee");
       this.state.cropper.destroy();
+      console.log(this.imageElement.current);
       const cropper = new Cropper(this.imageElement.current, {
         zoomable: false,
         scalable: false,
         aspectRatio: 1,
         crop: () => {
-          console.log(this.previewElement.current);
-          this.previewElement.current.replaceChild(
-            cropper.getCroppedCanvas(),
-            this.previewElement.current.firstChild
-          );
           const canvas = this.previewElement.current.firstChild;
+          canvas.id = "preview";
+          const picture = cropper.getCroppedCanvas();
           const ctx = canvas.getContext("2d");
-          ctx.font = "bold 48px Montreal-Bold";
-          ctx.fillStyle = "#00a79d";
-
           const img = this.state.pfpImage;
+          ctx.drawImage(
+            picture,
+            0,
+            0,
+            picture.width,
+            picture.height,
+            0,
+            0,
+            canvas.width,
+            canvas.height
+          );
 
           ctx.drawImage(
             img,
@@ -116,63 +128,35 @@ class ImageCropper extends Component {
     });
   };
 
-  // onFileUpload = () => {
-  //   const canvas = this.state.cropper.getCroppedCanvas();
-
-  //   // canvas.toBlob((blob) => {
-  //   //   const formData = new FormData();
-  //   //   formData.append("profileImage", blob, "cropped.png");
-  //   //   axios.post(apiEndpoint, formData);
-  //   // });
-  // };
-
-  fileData = () => {
-    if (this.state.selectedFile) {
-      return (
-        <div>
-          <h2>File Details:</h2>
-          <p>File Name: {this.state.selectedFile.name}</p>
-          <p>File Type: {this.state.selectedFile.type}</p>
-          <p>
-            Last Modified:{" "}
-            {new Date(this.state.selectedFile.lastModified).toString()}
-          </p>
-        </div>
-      );
-    } else {
-      return (
-        <div>
-          <br />
-          <h4>Choose a file before pressing the upload button!</h4>
-        </div>
-      );
-    }
-  };
+  onLogin(picture, name) {
+    this.setState({ fileURL: picture, name: name, fbProfile: picture });
+    console.log(picture, name);
+  }
 
   render() {
     return (
       <div>
-        <h1>Relevant Image Converter</h1>
-        <h3>
-          Upload your profile picture and we'll convert it to have relevant
-          details on it!
-        </h3>
         <div>
+          <Facebook onLogin={this.onLogin} />
           <input
             type="file"
             onChange={this.onFileChange}
             accept=".jpg, .jpeg, .png"
+            className="uploadButton"
           />
-          <button onClick={this.onFileUpload}>Upload!</button>
         </div>
-        {this.fileData()}
-        <div className="img-container">
-          <img ref={this.imageElement} src={this.state.fileURL} alt="Source" />
+        <div className="images-container">
+          <div className="img-container">
+            <img
+              ref={this.imageElement}
+              src={this.state.fileURL}
+              alt="Source"
+            />
+          </div>
+          <div className="preview-container" ref={this.previewElement}>
+            <canvas width={500} height={500}></canvas>
+          </div>
         </div>
-        <div className="preview-container" ref={this.previewElement}>
-          <canvas></canvas>
-        </div>
-        {/* <img src={pfpMask} alt="meow"></img> */}
       </div>
     );
   }

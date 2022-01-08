@@ -1,0 +1,52 @@
+@font-face {
+  font-family: "Montreal-Bold";
+  src: url("./Montreal-Bold.ttf");
+}
+
+.mainNavLink {
+  font-family: Montreal-Bold;
+  font-size: 50px;
+  font-style: normal;
+  color: #000000;
+  text-decoration: none;
+  transition: color 0.5s;
+  float: left;
+  padding-top: 10px;
+}
+
+.secondaryNavLink {
+  font-family: Montreal-Bold;
+  font-size: 25px;
+  font-style: normal;
+  text-decoration: none;
+  color: #000000;
+  margin: 25px;
+  float: right;
+  padding-top: 10px;
+}
+
+.navContainer a:hover {
+  color: #000011;
+}
+
+.navContainer {
+  height: 105px;
+  width: 90vw;
+  margin-right: 5vw;
+  margin-left: 5vw;
+}
+
+nav {
+  background-color: #ffffff;
+}
+
+.icon {
+  margin-left: 10px;
+}
+
+.subtitle {
+  font-size: 20px;
+  margin: 0;
+  line-height: 0;
+  margin-left: 1px;
+}
