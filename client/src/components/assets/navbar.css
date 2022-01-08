@@ -9,9 +9,9 @@
   font-style: normal;
   color: #000000;
   text-decoration: none;
-  transition: color 0.5s;
   float: left;
   padding-top: 10px;
+  transition: color 0.5s;
 }
 
 .secondaryNavLink {
@@ -23,10 +23,11 @@
   margin: 25px;
   float: right;
   padding-top: 10px;
+  transition: color 0.5s;
 }
 
 .navContainer a:hover {
-  color: #000011;
+  color: #43706c;
 }
 
 .navContainer {

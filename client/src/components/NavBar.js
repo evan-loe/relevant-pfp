@@ -13,10 +13,13 @@ function NavBar() {
           <div className="subtitle">facebook profile picture converter</div>
         </a>
         <a className="secondaryNavLink" href="https://relevantseries.com/">
-          relevant website
+          relevant 2022 website
           <FontAwesomeIcon className="icon" icon={faQuestion} />
         </a>
-        <a className="secondaryNavLink" href="/html/">
+        <a
+          className="secondaryNavLink"
+          href="https://github.com/evan-loe/relevant-pfp"
+        >
           github
           <FontAwesomeIcon className="icon" icon={faGithub} />
         </a>
