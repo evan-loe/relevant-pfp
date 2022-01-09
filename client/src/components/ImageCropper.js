@@ -150,10 +150,12 @@ class ImageCropper extends Component {
   }
 
   onFileChange = (event) => {
+    const fileURL = URL.createObjectURL(event.target.files[0]);
     this.setState({
-      fileURL: URL.createObjectURL(event.target.files[0]),
+      fileURL: fileURL,
       selectedFile: event.target.files[0],
     });
+    this.state.cropper.replace(fileURL);
   };
 
   onLogin(picture, name) {
