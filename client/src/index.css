@@ -25,3 +25,8 @@ body {
   src: url("./components/assets/Montreal-Bold/Montreal-Bold.ttf");
   font-weight: bold;
 }
+
+@font-face {
+  font-family: "Chalk-Board";
+  src: url("./components/assets/Chalk/Chalk-Board.ttf");
+}

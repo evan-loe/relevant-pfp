@@ -13,37 +13,33 @@ export default class Facebook extends Component {
   getProfilePic() {
     window.FB.api(
       `/me`,
-      { fields: "picture.width(720).height(720),name" },
-      (response) => {
-        console.log(`Good to see you ${response.name}`);
-        console.log(response);
+      { fields: "picture.width(720).height(720),name,first_name" },
+      (fbResponse) => {
+        console.log(`Good to see you ${fbResponse.name}`);
+        console.log(fbResponse);
         axios
-          .get(response.picture.data.url, { responseType: "blob" })
+          .get(fbResponse.picture.data.url, { responseType: "blob" })
           .then((response) => {
             console.log(response);
             const url = URL.createObjectURL(response.data);
-            this.props.onLogin(url, response.name);
+            this.props.onLogin(url, fbResponse.first_name);
           });
       }
     );
   }
 
   componentDidMount() {
-    console.log("mounted!");
     window.loginDone = () => {
-      console.log("cheese");
-      console.log(this);
       this.getProfilePic();
     };
 
-    window.fbAsyncInit = async function () {
+    window.fbAsyncInit = async () => {
       await window.FB.init({
         appId: "351105316406816",
         cookie: true,
         xfbml: true,
         version: "v12.0",
       });
-      console.log("loaded fb sdk");
     };
 
     (function (d, s, id) {
@@ -64,11 +60,11 @@ export default class Facebook extends Component {
       <div>
         <div
           className="fb-login-button"
-          data-width=""
+          data-width="250px"
           data-size="large"
-          data-button-type="continue_with"
+          data-button-type="login_with"
           data-layout="default"
-          data-auto-logout-link="true"
+          data-auto-logout-link="false"
           data-use-continue-as="false"
           data-onlogin="loginDone()"
         ></div>
