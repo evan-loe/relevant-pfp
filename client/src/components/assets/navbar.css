@@ -1,8 +1,3 @@
-@font-face {
-  font-family: "Montreal-Bold";
-  src: url("./Montreal-Bold.ttf");
-}
-
 .mainNavLink {
   font-family: Montreal-Bold;
   font-size: 50px;

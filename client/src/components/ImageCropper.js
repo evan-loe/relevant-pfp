@@ -5,6 +5,9 @@ import Cropper from "cropperjs";
 import pfpMask from "./assets/relevant-pfp-mask.png";
 import Facebook from "./Facebook";
 
+import { faFolder } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 class ImageCropper extends Component {
   constructor(props) {
     super(props);
@@ -22,46 +25,54 @@ class ImageCropper extends Component {
     this.onLogin = this.onLogin.bind(this);
   }
 
+  crop(cropper) {
+    const canvas = this.previewElement.current.firstChild;
+    console.log(window.innerHeight);
+    console.log(window.innerWidth);
+    canvas.width = window.innerHeight * 0.5 + 21;
+    canvas.height = window.innerHeight * 0.5 + 21;
+
+    const picture = cropper.getCroppedCanvas();
+
+    const ctx = canvas.getContext("2d");
+    ctx.font = "bold 48px Montreal-Bold";
+    ctx.fillStyle = "#00a79d";
+
+    const img = this.state.pfpImage;
+
+    ctx.drawImage(
+      picture,
+      0,
+      0,
+      picture.width,
+      picture.height,
+      0,
+      0,
+      canvas.width,
+      canvas.height
+    );
+
+    ctx.drawImage(
+      img,
+      0,
+      0,
+      img.width,
+      img.height,
+      0,
+      0,
+      canvas.width,
+      canvas.height
+    );
+  }
+
   componentDidMount() {
     const cropper = new Cropper(this.imageElement.current, {
-      zoomable: false,
+      zoomable: true,
       scalable: false,
       aspectRatio: 1,
+      viewMode: 1,
       crop: () => {
-        const canvas = this.previewElement.current.firstChild;
-        canvas.id = "preview";
-
-        const picture = cropper.getCroppedCanvas();
-
-        const ctx = canvas.getContext("2d");
-        ctx.font = "bold 48px Montreal-Bold";
-        ctx.fillStyle = "#00a79d";
-
-        const img = this.state.pfpImage;
-
-        ctx.drawImage(
-          picture,
-          0,
-          0,
-          picture.width,
-          picture.height,
-          0,
-          0,
-          canvas.width,
-          canvas.height
-        );
-
-        ctx.drawImage(
-          img,
-          0,
-          0,
-          img.width,
-          img.height,
-          0,
-          0,
-          canvas.width,
-          canvas.height
-        );
+        this.crop(cropper);
       },
     });
     // load image
@@ -83,38 +94,11 @@ class ImageCropper extends Component {
       this.state.cropper.destroy();
       console.log(this.imageElement.current);
       const cropper = new Cropper(this.imageElement.current, {
-        zoomable: false,
+        zoomable: true,
         scalable: false,
         aspectRatio: 1,
         crop: () => {
-          const canvas = this.previewElement.current.firstChild;
-          canvas.id = "preview";
-          const picture = cropper.getCroppedCanvas();
-          const ctx = canvas.getContext("2d");
-          const img = this.state.pfpImage;
-          ctx.drawImage(
-            picture,
-            0,
-            0,
-            picture.width,
-            picture.height,
-            0,
-            0,
-            canvas.width,
-            canvas.height
-          );
-
-          ctx.drawImage(
-            img,
-            0,
-            0,
-            img.width,
-            img.height,
-            0,
-            0,
-            canvas.width,
-            canvas.height
-          );
+          this.crop(cropper);
         },
       });
       this.setState({ cropper: cropper });
@@ -136,9 +120,17 @@ class ImageCropper extends Component {
   render() {
     return (
       <div>
-        <div>
-          <Facebook onLogin={this.onLogin} />
+        <div className="imageSelect">
+          <div className="uploadText">
+            Upload your profile picture or login with Facebook!
+          </div>
+          <Facebook onLogin={this.onLogin} className="facebookLogin" />
+          <label for="file-upload" class="custom-file-upload">
+            <FontAwesomeIcon icon={faFolder} className="folder" />
+            Upload from device
+          </label>
           <input
+            id="file-upload"
             type="file"
             onChange={this.onFileChange}
             accept=".jpg, .jpeg, .png"
@@ -153,8 +145,9 @@ class ImageCropper extends Component {
               alt="Source"
             />
           </div>
+          <img id="arrow" alt="arrow" src={require("./assets/arrow.png")}></img>
           <div className="preview-container" ref={this.previewElement}>
-            <canvas width={500} height={500}></canvas>
+            <canvas></canvas>
           </div>
         </div>
       </div>

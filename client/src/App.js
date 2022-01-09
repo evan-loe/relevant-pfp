@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import ImageCropper from "./components/ImageCropper";
 import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
@@ -14,6 +15,7 @@ function App() {
     <div className="background">
       <NavBar />
       <ImageCropper />
+      <Footer />
     </div>
   );
 }

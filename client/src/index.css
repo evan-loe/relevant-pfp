@@ -4,6 +4,24 @@ html,
 }
 
 body {
-  overflow: hidden;
+  /* overflow: hidden; */
   margin: 0;
+}
+
+@font-face {
+  font-family: Lato;
+  src: url("./components/assets/Lato/Lato-Light.ttf");
+  font-weight: lighter;
+}
+
+@font-face {
+  font-family: Lato;
+  src: url("./components/assets/Lato/Lato-Bold.ttf");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Montreal-Bold";
+  src: url("./components/assets/Montreal-Bold/Montreal-Bold.ttf");
+  font-weight: bold;
 }
