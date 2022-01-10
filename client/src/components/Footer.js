@@ -38,7 +38,9 @@ function Footer() {
             Check out my Gitub!
           </a>
         </div>
-        <a href="/privacyPolicy.html">Privacy Policy</a>
+        <a href="https://relevant-pfp.herokuapp.com/privacyPolicy.html">
+          Privacy Policy
+        </a>
         <div>Copyright 2022</div>
       </div>
     </div>
