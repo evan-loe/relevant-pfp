@@ -1,6 +1,7 @@
 html,
 #root {
   background-color: #00a79d;
+  scroll-behavior: smooth;
 }
 
 body {

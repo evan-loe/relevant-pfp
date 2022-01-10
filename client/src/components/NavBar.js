@@ -8,7 +8,7 @@ function NavBar() {
   return (
     <nav>
       <div className="navContainer">
-        <a className="mainNavLink" href="/html/">
+        <a className="mainNavLink" href="#parent">
           <div className="title">rel·e·vant</div>
           <div className="subtitle">facebook profile picture converter</div>
         </a>

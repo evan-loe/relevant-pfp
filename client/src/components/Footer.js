@@ -1,7 +1,11 @@
 import React from "react";
 import "./assets/footer.css";
 
-import { faFacebookF, faInstagram } from "@fortawesome/free-brands-svg-icons";
+import {
+  faFacebookF,
+  faInstagram,
+  faGithub,
+} from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Footer() {
@@ -12,22 +16,31 @@ function Footer() {
           <h2>Connect With Us!</h2>
           <p>Follow us on Facebook and Instagram to stay updated!</p>
           <p>
-            If you have any questions, please send us an email:{" "}
+            If you have any questions, please send us an email at
             <a href="mailto:relevant2021@gmail.com"> relevant2021@gmail.com</a>
           </p>
         </div>
         <div className="socialContainer">
           <FontAwesomeIcon icon={faFacebookF} size="4x" className="logo" />
           <div className="socialHandle">@RelevantSeriesUofT</div>
-          <a href="https://facebook.com">Follow Us</a>
+          <a href="https://www.facebook.com/RelevantSeriesUofT">Follow Us</a>
         </div>
         <div className="socialContainer">
           <FontAwesomeIcon icon={faInstagram} size="4x" className="logo" />
           <div className="socialHandle">@RelevantUofT</div>
-          <a href="https://instagram.com">Follow Us</a>
+          <a href="https://www.instagram.com/relevantuoft/">Follow Us</a>
         </div>
       </div>
-      <div className="bottomFooter"></div>
+      <div className="bottomFooter">
+        <div>
+          <a href="https://github.com/evan-loe">
+            <FontAwesomeIcon icon={faGithub} id="githubLinkIcon" />
+            Check out my Gitub!
+          </a>
+        </div>
+        <a href="/privacyPolicy.html">Privacy Policy</a>
+        <div>Copyright 2022</div>
+      </div>
     </div>
   );
 }

@@ -36,11 +36,11 @@ class ImageCropper extends Component {
   }
 
   crop(cropper, imageMask) {
-    const canvas = this.previewElement.current.firstChild;
+    const canvas = this.previewElement.current.querySelector("#preview");
     console.log(window.innerHeight);
     console.log(window.innerWidth);
-    canvas.width = 320;
-    canvas.height = 320;
+    canvas.width = 450;
+    canvas.height = 450;
 
     const picture = cropper.getCroppedCanvas();
 
@@ -124,7 +124,8 @@ class ImageCropper extends Component {
     let pfpImageq = new Image();
     pfpImageq.src = pfpMaskq;
     pfpImage.onload = () => {
-      this.previewElement.current.firstChild
+      this.previewElement.current
+        .querySelector("#preview")
         .getContext("2d")
         .drawImage(pfpImage, 0, 0);
     };
@@ -177,35 +178,17 @@ class ImageCropper extends Component {
   }
 
   saveImage() {
-    this.previewElement.current.firstChild.toBlob((blob) => {
+    this.previewElement.current.querySelector("#preview").toBlob((blob) => {
       saveAs(blob, `${this.state.name}relevant2022pfp.png`);
     }, "image/png");
   }
 
   render() {
     return (
-      <div className="parent-container">
+      <div id="parent" className="parent-container">
         <div className="images-container">
-          <div className="button-container">
-            <div>
-              {this.state.name === ""
-                ? "Choose your profile picture from your device or Facebook!"
-                : `Hi ${this.state.name}!`}
-            </div>
-            <Facebook onLogin={this.onLogin} onLogout={this.onLogout} />
-            <label htmlFor="file-upload" className="custom-file-upload">
-              <FontAwesomeIcon icon={faFolder} id="folderIcon" />
-              Upload From Device
-            </label>
-            <input
-              id="file-upload"
-              type="file"
-              onChange={this.onFileChange}
-              accept=".jpg, .jpeg, .png"
-              className="uploadButton"
-            />
-          </div>
           <div className="uploadImage-container">
+            <div className="title-box">Input</div>
             <div className="img-container">
               <img
                 ref={this.imageElement}
@@ -213,38 +196,61 @@ class ImageCropper extends Component {
                 alt="Source"
               />
             </div>
+            <div className="button-container">
+              <div>
+                {this.state.name === ""
+                  ? "Choose your profile picture from your device or Facebook!"
+                  : `Hi ${this.state.name}!`}
+              </div>
+              <Facebook onLogin={this.onLogin} onLogout={this.onLogout} />
+              <label htmlFor="file-upload" className="custom-file-upload">
+                <FontAwesomeIcon icon={faFolder} id="folderIcon" />
+                Upload From Device
+              </label>
+              <input
+                id="file-upload"
+                type="file"
+                onChange={this.onFileChange}
+                accept=".jpg, .jpeg, .png"
+                className="uploadButton"
+              />
+            </div>
           </div>
-          <div className="selectMask">
-            <div id="customize">Customize!</div>
-            <img
-              ref={this.mask}
-              id="relevant-mask"
-              className="mask active"
-              alt="relevant mask without question mark"
-              src={require("./assets/relevant-pfp-mask.png")}
-            ></img>
-            <img
-              ref={this.maskq}
-              id="relevant-mask-q"
-              className="mask"
-              alt="relevant mask without question mark"
-              src={require("./assets/relevant-pfp-mask-q.png")}
-            ></img>
+          <div className="mask-container">
+            <div className="title-box">Select A Filter</div>
+            <div className="selectMask">
+              <img
+                ref={this.mask}
+                id="relevant-mask"
+                className="mask active"
+                alt="relevant mask without question mark"
+                src={require("./assets/relevant-pfp-mask.png")}
+              ></img>
+              <img
+                ref={this.maskq}
+                id="relevant-mask-q"
+                className="mask"
+                alt="relevant mask without question mark"
+                src={require("./assets/relevant-pfp-mask-q.png")}
+              ></img>
+            </div>
           </div>
-
           <div className="preview-container" ref={this.previewElement}>
-            <canvas></canvas>
-          </div>
-          <div className="button-container">
-            <div>Don't forget to download and change your profile picture!</div>
-            <a className="generic-button" href="https://facebook.com">
-              <FontAwesomeIcon icon={faFacebook} id="facebookIcon" />
-              Go To Facebook.com
-            </a>
-            <button className="generic-button" onClick={this.saveImage}>
-              <FontAwesomeIcon icon={faArrowCircleDown} id="downloadIcon" />
-              Download Image
-            </button>
+            <div className="title-box">Preview</div>
+            <canvas id="preview"></canvas>
+            <div className="button-container">
+              <div>
+                Don't forget to download and change your profile picture!
+              </div>
+              <a className="generic-button" href="https://facebook.com">
+                <FontAwesomeIcon icon={faFacebook} id="facebookIcon" />
+                Go To Facebook.com
+              </a>
+              <button className="generic-button" onClick={this.saveImage}>
+                <FontAwesomeIcon icon={faArrowCircleDown} id="downloadIcon" />
+                Download Image
+              </button>
+            </div>
           </div>
         </div>
       </div>

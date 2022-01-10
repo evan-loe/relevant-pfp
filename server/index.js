@@ -26,6 +26,10 @@ app.get("/home", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 
+app.get("/privacy", (req, res) => {
+  console.log(path.join(__dirname, "../client/build/privacyPolicy.html"));
+});
+
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log(`Server is up on port ${port}!`);
