@@ -1,10 +1,17 @@
 .footerContainer {
-  height: 300px;
+  height: auto;
   background-color: #ededed;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+.connect {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .connect h2 {
@@ -18,7 +25,7 @@
   margin-top: 5px;
   font-family: Lato, Arial, Helvetica, sans-serif;
   font-size: 20px;
-  width: 500px;
+  width: 30vw;
 }
 
 a {
@@ -35,7 +42,6 @@ a {
 .bottomFooter {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
   justify-content: flex-end;
   align-items: center;
   background-color: #171717;
@@ -74,4 +80,29 @@ a {
 
 .logo {
   color: #00a79d;
+}
+
+@media (max-width: 1000px) {
+  .footerContainer {
+    flex-direction: column;
+  }
+
+  .bottomFooter {
+    justify-content: center;
+  }
+
+  .connect {
+    align-items: center;
+    text-align: center;
+    margin: 10px;
+    width: 90%;
+  }
+
+  .connect p {
+    width: fit-content;
+  }
+
+  .socialContainer {
+    margin: 20px;
+  }
 }

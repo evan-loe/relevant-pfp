@@ -1,6 +1,8 @@
 import React from "react";
 import "./assets/footer.css";
 
+import { Link } from "react-router-dom";
+
 import {
   faFacebookF,
   faInstagram,
@@ -33,11 +35,12 @@ function Footer() {
       </div>
       <div className="bottomFooter">
         <div>
-          <a href="https://github.com/evan-loe">
+          <a href="https://github.com/evan-loe/relevant-pfp">
             <FontAwesomeIcon icon={faGithub} id="githubLinkIcon" />
             Check out my Gitub!
           </a>
         </div>
+        <Link to="/privacy-policy">Privacy Policy</Link>
         <a href="https://relevant-pfp.herokuapp.com/privacyPolicy.html">
           Privacy Policy
         </a>

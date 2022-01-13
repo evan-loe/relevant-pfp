@@ -8,7 +8,12 @@
 
 .mainNavLink {
   color: #000;
-  margin: 0.5rem 2rem;
+  margin: 0.5rem 4rem;
+  transition: color 0.5s;
+}
+
+.mainNavLink:hover {
+  color: #94b9b6;
 }
 
 .mainNavLink .title {
@@ -21,6 +26,10 @@
   font-size: 1.5rem;
   margin-left: 2px;
   margin-bottom: 5px;
+}
+
+.navBarLinks {
+  margin-right: 2rem;
 }
 
 .navBarLinks ul {
@@ -68,7 +77,7 @@
   margin-left: 0.5rem;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 810px) {
   .toggleButton {
     display: flex;
   }

@@ -1,0 +1,24 @@
+body {
+  margin: 0;
+  background-color: #00a79d;
+}
+
+.mainContent {
+  margin: 50px;
+  background-color: #c5f1ee;
+  padding: 10px 40px;
+  border-radius: 10px;
+  font-family: Montreal-Bold;
+}
+
+.mainContent p {
+  font-family: Lato;
+  font-size: 20px;
+}
+
+a {
+  font-family: Lato, Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  text-decoration: none;
+  color: #00a79d;
+}

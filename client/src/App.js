@@ -1,22 +1,31 @@
-import React from "react";
+import React, { useLayoutEffect } from "react";
 import "./App.css";
 import ImageCropper from "./components/ImageCropper";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
+import { Routes, Route, BrowserRouter, useLocation } from "react-router-dom";
+import PrivacyPolicy from "./components/PrivacyPolicy";
 
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { faQuestion } from "@fortawesome/free-solid-svg-icons";
-
-library.add(faGithub, faQuestion);
+const ScrollToTopWrapper = ({ children }) => {
+  const location = useLocation();
+  useLayoutEffect(() => {
+    document.documentElement.scrollTo(0, 0);
+  }, [location.pathname]);
+  return children;
+};
 
 function App() {
   return (
-    <div className="background">
-      <NavBar />
-      <ImageCropper />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <ScrollToTopWrapper>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<ImageCropper />}></Route>
+          <Route path="privacy-policy" element={<PrivacyPolicy />}></Route>
+        </Routes>
+        <Footer />
+      </ScrollToTopWrapper>
+    </BrowserRouter>
   );
 }
 

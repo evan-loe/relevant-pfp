@@ -1,6 +1,7 @@
 html,
 #root {
   background-color: #00a79d;
+  /* background-image: url("./components/assets/"); */
   scroll-behavior: smooth;
 }
 
@@ -8,6 +9,17 @@ body {
   margin: 0;
   padding: 0;
   font-family: Montreal-Bold;
+}
+
+/* hide scroll bar */
+html {
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  overflow-y: scroll;
+}
+
+html::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
 }
 
 @font-face {
@@ -31,4 +43,12 @@ body {
 @font-face {
   font-family: "Chalk-Board";
   src: url("./components/assets/Chalk/Chalk-Board.ttf");
+}
+
+.fb-login-button {
+  margin: 5px;
+}
+
+.fb-login-button:hover {
+  transform: scale(1.05);
 }

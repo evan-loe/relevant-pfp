@@ -15,8 +15,6 @@ export default class Facebook extends Component {
       `/me`,
       { fields: "picture.width(720).height(720),name,first_name" },
       (fbResponse) => {
-        console.log(`Good to see you ${fbResponse.name}`);
-        console.log(fbResponse);
         axios
           .get(fbResponse.picture.data.url, { responseType: "blob" })
           .then((response) => {
@@ -33,8 +31,8 @@ export default class Facebook extends Component {
       this.getProfilePic();
     };
 
-    window.fbAsyncInit = async () => {
-      await window.FB.init({
+    window.fbAsyncInit = () => {
+      window.FB.init({
         appId: "351105316406816",
         cookie: true,
         xfbml: true,
