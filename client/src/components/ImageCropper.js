@@ -10,7 +10,7 @@ import { Fade } from "react-reveal";
 import styles from "./assets/imagecropper.module.css";
 
 import { faArrowCircleDown, faFolder } from "@fortawesome/free-solid-svg-icons";
-import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class ImageCropper extends Component {
@@ -39,7 +39,6 @@ class ImageCropper extends Component {
   }
 
   crop(cropper, imageMask) {
-<<<<<<< HEAD
     const canvas = this.previewElement.current.querySelector("#preview");
     canvas.width =
       window.innerWidth <= 810
@@ -49,13 +48,6 @@ class ImageCropper extends Component {
       window.innerWidth <= 810
         ? window.innerWidth * 0.6 + 30
         : window.innerWidth * 0.2 + 30;
-=======
-    const canvas = this.previewElement.current.firstChild;
-    console.log(window.innerHeight);
-    console.log(window.innerWidth);
-    canvas.width = 320;
-    canvas.height = 320;
->>>>>>> parent of 53474a6 (added privacy policy page)
 
     const picture = cropper.getCroppedCanvas();
 
@@ -211,7 +203,6 @@ class ImageCropper extends Component {
 
   render() {
     return (
-<<<<<<< HEAD
       <div id="parent" className={styles.parentContainer}>
         <div className={styles.imagesContainer}>
           <Fade>
@@ -354,70 +345,6 @@ class ImageCropper extends Component {
               </div>
             </div>
           </Fade>
-=======
-      <div className="parent-container">
-        <div className="images-container">
-          <div className="button-container">
-            <div>
-              {this.state.name === ""
-                ? "Choose your profile picture from your device or Facebook!"
-                : `Hi ${this.state.name}!`}
-            </div>
-            <Facebook onLogin={this.onLogin} onLogout={this.onLogout} />
-            <label htmlFor="file-upload" className="custom-file-upload">
-              <FontAwesomeIcon icon={faFolder} id="folderIcon" />
-              Upload From Device
-            </label>
-            <input
-              id="file-upload"
-              type="file"
-              onChange={this.onFileChange}
-              accept=".jpg, .jpeg, .png"
-              className="uploadButton"
-            />
-          </div>
-          <div className="uploadImage-container">
-            <div className="img-container">
-              <img
-                ref={this.imageElement}
-                src={this.state.fileURL}
-                alt="Source"
-              />
-            </div>
-          </div>
-          <div className="selectMask">
-            <div id="customize">Customize!</div>
-            <img
-              ref={this.mask}
-              id="relevant-mask"
-              className="mask active"
-              alt="relevant mask without question mark"
-              src={require("./assets/relevant-pfp-mask.png")}
-            ></img>
-            <img
-              ref={this.maskq}
-              id="relevant-mask-q"
-              className="mask"
-              alt="relevant mask without question mark"
-              src={require("./assets/relevant-pfp-mask-q.png")}
-            ></img>
-          </div>
-
-          <div className="preview-container" ref={this.previewElement}>
-            <canvas></canvas>
-          </div>
-          <div className="button-container">
-            <div>Don't forget to download and change your profile picture!</div>
-            <a className="generic-button" href="https://facebook.com">
-              <FontAwesomeIcon icon={faFacebook} id="facebookIcon" />
-              Go To Facebook.com
-            </a>
-            <button className="generic-button" onClick={this.saveImage}>
-              <FontAwesomeIcon icon={faArrowCircleDown} id="downloadIcon" />
-              Download Image
-            </button>
-          </div>
->>>>>>> parent of 53474a6 (added privacy policy page)
         </div>
       </div>
     );
