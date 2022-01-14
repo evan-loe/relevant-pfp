@@ -194,8 +194,6 @@ a.genericButton {
   grid-column: 1/2;
 }
 
-#relevant-mask-q {
-}
 */ .arrow a {
   color: #000;
   transition: color 0.5s;
