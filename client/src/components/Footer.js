@@ -18,19 +18,19 @@ function Footer() {
           <h2>Connect With Us!</h2>
           <p>Follow us on Facebook and Instagram to stay updated!</p>
           <p>
-            If you have any questions, please send us an email at
+            If you have any questions, please send us an email:{" "}
             <a href="mailto:relevant2021@gmail.com"> relevant2021@gmail.com</a>
           </p>
         </div>
         <div className="socialContainer">
           <FontAwesomeIcon icon={faFacebookF} size="4x" className="logo" />
           <div className="socialHandle">@RelevantSeriesUofT</div>
-          <a href="https://www.facebook.com/RelevantSeriesUofT">Follow Us</a>
+          <a href="https://facebook.com">Follow Us</a>
         </div>
         <div className="socialContainer">
           <FontAwesomeIcon icon={faInstagram} size="4x" className="logo" />
           <div className="socialHandle">@RelevantUofT</div>
-          <a href="https://www.instagram.com/relevantuoft/">Follow Us</a>
+          <a href="https://instagram.com">Follow Us</a>
         </div>
       </div>
       <div className="bottomFooter">
