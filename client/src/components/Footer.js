@@ -1,8 +1,7 @@
 import React from "react";
+import "./assets/footer.css";
 
 import { Link } from "react-router-dom";
-
-import styles from "./assets/footer.module.css";
 
 import {
   faFacebookF,
@@ -13,9 +12,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Footer() {
   return (
-    <div className={styles.footer}>
-      <div className={styles.footerContainer}>
-        <div className={styles.connect}>
+    <div className="footer">
+      <div className="footerContainer">
+        <div className="connect">
           <h2>Connect With Us!</h2>
           <p>Follow us on Facebook and Instagram to stay updated!</p>
           <p>
@@ -23,33 +22,28 @@ function Footer() {
             <a href="mailto:relevant2021@gmail.com"> relevant2021@gmail.com</a>
           </p>
         </div>
-        <div className={styles.socialContainer}>
-          <FontAwesomeIcon
-            icon={faFacebookF}
-            size="4x"
-            className={styles.logo}
-          />
-          <div className={styles.socialHandle}>@RelevantSeriesUofT</div>
+        <div className="socialContainer">
+          <FontAwesomeIcon icon={faFacebookF} size="4x" className="logo" />
+          <div className="socialHandle">@RelevantSeriesUofT</div>
           <a href="https://www.facebook.com/RelevantSeriesUofT">Follow Us</a>
         </div>
-        <div className={styles.socialContainer}>
-          <FontAwesomeIcon
-            icon={faInstagram}
-            size="4x"
-            className={styles.logo}
-          />
-          <div className={styles.socialHandle}>@RelevantUofT</div>
+        <div className="socialContainer">
+          <FontAwesomeIcon icon={faInstagram} size="4x" className="logo" />
+          <div className="socialHandle">@RelevantUofT</div>
           <a href="https://www.instagram.com/relevantuoft/">Follow Us</a>
         </div>
       </div>
-      <div className={styles.bottomFooter}>
+      <div className="bottomFooter">
         <div>
-          <FontAwesomeIcon icon={faGithub} className={styles.githubLinkIcon} />
           <a href="https://github.com/evan-loe/relevant-pfp">
-            Github for this page!
+            <FontAwesomeIcon icon={faGithub} id="githubLinkIcon" />
+            Check out my Gitub!
           </a>
         </div>
         <Link to="/privacy-policy">Privacy Policy</Link>
+        <a href="https://relevant-pfp.herokuapp.com/privacyPolicy.html">
+          Privacy Policy
+        </a>
         <div>Copyright 2022</div>
       </div>
     </div>

@@ -60,7 +60,7 @@ a {
   color: #fff;
 }
 
-.githubLinkIcon {
+#githubLinkIcon {
   margin: 0px 7px;
 }
 
@@ -89,19 +89,6 @@ a {
 
   .bottomFooter {
     justify-content: center;
-    padding: 15px 0px;
-  }
-
-  .bottomFooter div {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .githubLinkIcon {
-    margin: 0;
-    margin-left: 20px;
   }
 
   .connect {

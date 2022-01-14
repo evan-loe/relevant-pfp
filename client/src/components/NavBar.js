@@ -30,7 +30,7 @@ function NavBar() {
           </div>
         </Link>
 
-        <a href="/" className={styles.toggleButton} ref={toggleButton}>
+        <a href="#" className={styles.toggleButton} ref={toggleButton}>
           <span className={styles.bar}></span>
           <span className={styles.bar}></span>
           <span className={styles.bar}></span>
