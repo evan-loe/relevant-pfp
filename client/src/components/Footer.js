@@ -10,6 +10,8 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+const today = new Date()
+
 function Footer() {
   return (
     <div className="footer">
@@ -44,7 +46,7 @@ function Footer() {
         <a href="https://relevant-pfp.herokuapp.com/privacyPolicy.html">
           Privacy Policy
         </a>
-        <div>Copyright 2022</div>
+        <div>Copyright {today.getFullYear()}</div>
       </div>
     </div>
   );
