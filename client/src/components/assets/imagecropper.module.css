@@ -164,9 +164,13 @@ a.genericButton {
 .selectMask {
   background-color: #a7cecb;
   border-radius: 10px;
-  width: 12vw;
+  width: 11vw;
   height: auto;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .mask {

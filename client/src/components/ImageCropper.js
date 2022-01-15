@@ -10,7 +10,7 @@ import { Fade } from "react-reveal";
 import styles from "./assets/imagecropper.module.css";
 
 import { faArrowCircleDown, faFolder } from "@fortawesome/free-solid-svg-icons";
-import { faFacebook } from "@fortawesome/free-brands-svg-icons";
+import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class ImageCropper extends Component {

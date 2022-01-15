@@ -25,12 +25,12 @@ function Footer() {
         <div className="socialContainer">
           <FontAwesomeIcon icon={faFacebookF} size="4x" className="logo" />
           <div className="socialHandle">@RelevantSeriesUofT</div>
-          <a href="https://facebook.com">Follow Us</a>
+          <a href="https://www.facebook.com/RelevantSeriesUofT">Follow Us</a>
         </div>
         <div className="socialContainer">
           <FontAwesomeIcon icon={faInstagram} size="4x" className="logo" />
           <div className="socialHandle">@RelevantUofT</div>
-          <a href="https://instagram.com">Follow Us</a>
+          <a href="https://www.instagram.com/relevantuoft/">Follow Us</a>
         </div>
       </div>
       <div className="bottomFooter">

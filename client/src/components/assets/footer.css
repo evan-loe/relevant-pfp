@@ -46,6 +46,22 @@ a {
   align-items: center;
   background-color: #171717;
   height: 50px;
+  color: #fff;
+  font-family: Lato;
+  font-weight: bold;
+  text-align: center;
+}
+
+.bottomFooter > * {
+  margin: 0px 20px;
+}
+
+.bottomFooter a {
+  color: #fff;
+}
+
+#githubLinkIcon {
+  margin: 0px 7px;
 }
 
 .socialHandle {
