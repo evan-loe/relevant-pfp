@@ -162,9 +162,6 @@ a.genericButton {
 }
 
 .selectMask {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 50px 186px;
   background-color: #a7cecb;
   border-radius: 10px;
   width: 12vw;
@@ -189,29 +186,13 @@ a.genericButton {
   transform: scale(1.1);
 }
 
-#relevant-mask {
-  grid-row: 2/3;
-  grid-column: 1/2;
-}
-
-*/ .arrow a {
+.arrow a {
   color: #000;
   transition: color 0.5s;
 }
 
 .arrow a:hover {
   color: #a7cecb;
-}
-
-#customize {
-  grid-row: 1/2;
-  grid-column: 1/3;
-  justify-self: center;
-  font-family: Montreal-Bold;
-  font-size: 30px;
-  color: #fff;
-  width: 100%;
-  text-align: center;
 }
 
 .titleBox {
